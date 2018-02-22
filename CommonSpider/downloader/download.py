@@ -1,6 +1,7 @@
 from utils import log
 import os
 import requests
+from utils import user_agent
 
 
 def cached_url(url):
@@ -27,9 +28,10 @@ def cached_url(url):
         if not os.path.exists(folder):
             os.makedirs(folder)
 
+        useragent = user_agent()
+
         headers = {
-            'user-agent': '''Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.98 Safari/537.36
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8''',
+            'user-agent': useragent,
         }
         # 发送网络请求, 把结果写入到文件夹中
         r = requests.get(url, headers)
