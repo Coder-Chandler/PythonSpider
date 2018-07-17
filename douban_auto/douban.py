@@ -1,6 +1,6 @@
 import time
 from selenium import webdriver
-from scrapy import Selector
+
 import urllib.request
 from PIL import Image
 browser = webdriver.Chrome()

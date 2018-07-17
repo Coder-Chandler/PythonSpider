@@ -16,3 +16,5 @@ def user_agent():
     ua = UserAgent()
     useragent = ua.random
     return useragent
+
+
