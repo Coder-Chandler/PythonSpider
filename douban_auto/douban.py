@@ -42,10 +42,10 @@ try:
         # # 我的帖子
         reply = []
         browser.find_element_by_css_selector(".comment-wrapper .comment_textarea").send_keys("呵呵呵呵呵呵呵呵呵")
-        catcha = browser.find_element_by_css_selector("#captcha_image")
+        catcha_sub = browser.find_element_by_css_selector("#captcha_image")
         print('selenium Chrome Please Wait 等待验证码传输...........')
         time.sleep(1)
-        if catcha is not None:
+        if catcha_sub is not None:
             print('saving captcha image 获取验证码图片...')
             time.sleep(1)
             captcha_link = browser.find_element_by_css_selector('#captcha_image').get_attribute('src')
@@ -57,6 +57,11 @@ try:
         browser.find_element_by_css_selector("input[name=submit_btn]").click()
 except Exception as e:
     browser.find_element_by_css_selector(".article .item .btn-submit").click()
+    tag_url = 'https://www.douban.com/group/topic/112995648/'
+    print('跳转到目标页面')
+    browser.get(tag_url)
+    browser.find_element_by_css_selector(".comment-wrapper .comment_textarea").send_keys("eeeeeeee")
+
 '''
 # 自动控制鼠标滚轮下拉
 for i in range(10):
@@ -68,10 +73,10 @@ print(browser.page_source)
 t_selector = Selector(text=browser.page_source)
 # 我的帖子
 '''
-browser.find_element_by_css_selector(".article .item .btn-submit").click()
-tag_url = 'https://www.douban.com/group/topic/112995648/'
-browser.get(tag_url)
-reply = []
-browser.find_element_by_css_selector(".comment-wrapper .comment_textarea").send_keys("苏宁易购你好！！！")
+# browser.find_element_by_css_selector(".article .item .btn-submit").click()
+# tag_url = 'https://www.douban.com/group/topic/112995648/'
+# browser.get(tag_url)
+# reply = []
+# browser.find_element_by_css_selector(".comment-wrapper .comment_textarea").send_keys("苏宁易购你好！！！")
 # browser.find_element_by_css_selector("input[name=submit_btn]").click()
 # browser.quit()
